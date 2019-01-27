@@ -1,0 +1,16 @@
+<script>
+	guess = 50
+	lowerBoundary = 1
+	upperBoundary = 100
+	answer = "<"
+	while (answer != "yes") {
+		answer = prompt("Is your number " +guess+ "?")
+		if (answer == "<") {
+			upperBoundary = guess
+		} else {
+				lowerBoundary = guess
+			}
+		guess = parseInt((upperBoundary + lowerBoundary) / 2)
+	}
+	alert("I won!")
+</script>
