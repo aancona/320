@@ -1,0 +1,37 @@
+<p>Input:<br><textarea id="input" rows="10" cols="80"></textarea>
+<p><button onclick="process()">Process</button>
+<p>Output:<br><textarea id="output" rows="10" cols="80"></textarea>
+
+<script>
+
+function process() {
+  x = document.getElementById("input").value
+  y = x.toLowerCase()
+  words = y.split(" ")
+  for(i=0; i<words.length; i++) {
+    z = i+1
+    noun = words[z]
+  	if (words[i] == "an") {
+      if (isVowel() == false) {
+        words[i] = "a"
+      }
+  } else if (words[i] == "a"){
+    if (isVowel() == true) {
+      words[i] = "an"
+    }
+  }
+  function isVowel() {
+    firstLetter = noun.charAt(0)
+    if (firstLetter == "a" || firstLetter == "e" || firstLetter == "i" || firstLetter == "o" || firstLetter == "u") {
+      return true
+    }
+      return false
+  }
+  y = words.join(" ")
+
+
+  document.getElementById("output").value = y
+
+}
+}
+</script>
