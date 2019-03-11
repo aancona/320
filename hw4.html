@@ -1,0 +1,129 @@
+<script>
+  prepositions = [
+    {
+      word: "on",
+      masteryLevel: 0,
+      questions: [
+        "The plate is ___ the table.",
+        "The hat was ___ his head.",
+        "My mom is always ___ the phone.",
+        "She's working ___ some homework.",
+        "Sign your name ___ the dotted line."
+      ],
+      correctAnswers: [
+      "The plate is on the table.",
+      "The hat was on his head.",
+      "My mom is always on the phone.",
+      "She's working on some homework.",
+      "Sign your name on the dotted line."
+      ]
+    },
+    {
+      word: "in",
+      masteryLevel: 0,
+      questions: [
+        "Are you interested ___ applying for the job?",
+        "There is milk ___ the fridge.",
+        "Bob spends a lot of time ___ his room.",
+        "I'll see you ___ an hour.",
+        "The students stood ___ a circle."
+      ],
+      correctAnswers: [
+      "Are you interested in applying for the job?",
+      "There is milk in the fridge.",
+      "Bob spends a lot of time in his room.",
+      "I'll see you in an hour.",
+      "The students stood in a circle."
+      ]
+    },
+    {
+      word: "from",
+      masteryLevel: 0,
+      questions: [
+        "Get that away ____ me!",
+        "They're ____ Canada.",
+        "My house is only five minutes ____ work.",
+        "Cheese is made ____ milk.",
+        "Will you get me a fork ____ that drawer?"
+      ],
+      correctAnswers: [
+      "Get that away from me!",
+      "They're from Canada.",
+      "My house is only five minutes from work.",
+      "Cheese is made from milk.",
+      "Will you get me a fork from that drawer?"
+      ]
+    },
+    {
+      word: "to",
+      masteryLevel: 0,
+      questions: [
+        "Let's go ___ the store.",
+        "Larry went ___ bed.",
+        "Give it ___ me!",
+        "That doesn't belong ___ you.",
+        "She's flying ___ Rome tomorrow."
+      ],
+      correctAnswers: [
+      "Let's go to the store.",
+      "Larry went to bed.",
+      "Give it to me!",
+      "That doesn't belong to you.",
+      "She's flying to Rome tomorrow."
+      ]
+    },
+    {
+      word: "at",
+      masteryLevel: 0,
+      questions: [
+        "She lost her ring ___ the beach.",
+        "Mary laughed ___ George when he fell.",
+        "Are you any good ___ cooking?",
+        "There was a riot ___ the train station.",
+        "Class begins ___ 10am."
+      ],
+      correctAnswers: [
+      "She lost her ring at the beach.",
+      "Mary laughed at George when he fell.",
+      "Are you any good at cooking?",
+      "There was a riot at the train station.",
+      "Class begins at 10am."
+      ]
+    }
+  ]
+
+  while (true) {
+    lowest = 1
+    worstPrep = 0
+    //find the lowest masteryLevel
+    for (j=0; j<prepositions.length; j++) {
+      if (prepositions[j].masteryLevel < lowest) {
+        lowest = prepositions[j].masteryLevel
+        worstPrep = j
+      }
+    }
+    //pick a random question
+    i = parseInt(Math.random() * prepositions.length)
+    //shows user the question
+    userAnswer = prompt(prepositions[worstPrep].questions[i])
+    //if the user enters a correct answer, add 1 to masteryLevel, otherwise subtract 1
+    if (userAnswer === prepositions[worstPrep].word) {
+      alert("Correct!")
+      prepositions[worstPrep].masteryLevel++
+    } else {
+      alert(prepositions[worstPrep].correctAnswers[i])
+      prepositions[worstPrep].masteryLevel--
+    }
+  }
+
+
+
+</script>
+
+<!--
+array with objects inside for each preposition. Mastery level begins at 0. when a question is asked, if correct
+  add 1 to mastery level. if Incorrect
+    subtract 1 from mastery level.
+use math.random() to select the index number for a random question. Object within each preposition object for five questions
+
+  -->
