@@ -1,0 +1,19 @@
+<script>
+  vowels = /[aeiouy]/gi
+  consonants = /[^aeiouy]/gi
+  punctuation =
+  x = prompt("Type anything.")
+  y = x.split("")
+  for(i=0;i<y.length;i++){
+    if (y[i].match(vowels)) {
+      if (y[i] == 'e' && !hasVowel && i == y.len) {
+        continue;
+      }
+      if (i == 0 || !(y[i-1].match(vowels))) {
+        y[i] = "aig" + y[i]
+      }
+    }
+  }
+  x = y.join("")
+  alert(x)
+</script>

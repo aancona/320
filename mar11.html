@@ -1,0 +1,25 @@
+<p>Input:<br><textarea id="input" rows="10" cols="80"></textarea>
+<p><button onclick="process()">Process</button>
+<p>Output:<br><textarea id="output" rows="10" cols="80"></textarea>
+
+<script>
+
+function process() {
+  x = document.getElementById("input").value
+  y = x.toLowerCase()
+  //x = x.replace(/\ba\b ([aeiou])/g, "an $1")
+  //x = x.replace(/\bA\b ([aeiou])/g, "An $1")
+  //x = x.replace(/\ban\b ([^aeiou])/g, "a $1")
+  //x = x.replace(/\bAn\b ([^aeiou])/g, "A $1")
+  x = x.replace (/[aeiou]/g, "")
+  z = x.split("")
+  z.reverse()
+  x = z.join("")
+  document.getElementById("output").value = x
+}
+
+</script>
+
+<!--
+  replace the \ in the second value of replace with $. so \ba\b ([aeiou]), an \1 == (/\ba\b ([aeiou])/g, "an $1")
+  -->

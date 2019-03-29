@@ -1,0 +1,17 @@
+<script src="https://linguatorium.com/tools/static/320/tau.js"></script>
+<script src="https://linguatorium.com/tools/static/320/grammar.js"></script>
+<script>
+  rule("S --> NPA VPT")
+  rule("S --> NPA VPI")
+  rule("S --> NPI VPT")
+  rule("NPA --> DET NA")
+  rule("NPI --> DET NI")
+  rule("VPT --> VT NPA")
+  rule("VPI --> VI")
+  rule("NA --> boy")
+  rule("NI --> ball")
+  rule("VTI --> hit")
+  rule("VNA --> cried")
+  rule("DET --> the")
+  run()
+</script>

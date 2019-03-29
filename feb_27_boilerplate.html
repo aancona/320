@@ -1,0 +1,38 @@
+<p>Input:<br><textarea id="input" rows="10" cols="80"></textarea>
+<p><button onclick="process()">Process</button>
+<p>Output:<br><textarea id="output" rows="10" cols="80"></textarea>
+
+<script>
+
+function process() {
+  x = document.getElementById("input").value
+  // remove punctuation
+  x = x.replace(/\W+/g, " ").toLowerCase().trim() // you don't need to understand how this line works (for now)
+
+  counts = {}
+  words = x.split(" ")
+  for (i=0; i<words.length; i++) {
+    //if word i is not in counts
+    if (!counts[words[i]]) {
+      //count begins at 1
+      counts[words[i]] = 1
+    } else {
+      counts[words[i]]++
+    }
+  }
+
+  y = JSON.stringify(counts, null, 2) // display the object as JSON
+  //shows word list in order of frequency at the end
+  sorted = Object.keys(counts).sort(function(a,b){return counts[b]-counts[a]})
+  y += sorted
+  document.getElementById("output").value = y
+}
+
+</script>
+
+<!--split up input into words
+go through each words
+put each word into our JS object
+  check if it's already in the object
+  if yes, add 1 to count
+  if no, start count at 1-->

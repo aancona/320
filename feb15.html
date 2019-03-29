@@ -1,0 +1,39 @@
+<script>
+	students = [
+		{
+			netid: "alyrose",
+			name: "Alyssa Jennings",
+			grade: "A+",
+			gender: "f"
+		},
+		{
+			netid: "mmiller3",
+			name: "Daisy Miller",
+			grade: "A+",
+			gender: "f"
+		},
+		{
+			netid: "evgeny",
+			name: "Evgeny Mikhaylovich Chukharev-Hudilainen",
+			grade: "D+",
+			gender: "m"
+		}
+
+	]
+	//alert(students[0]["name"]) must use this if identifier doesn't begin with a letter
+	for (i=0; i<students.length; i++) {
+		fullName = students[i].name.split(" ")	//splits the name into words
+		//firstName = fullName[0]
+		a = fullName.length - 1	//used to select the last word in the string to account for middle names
+		lastName = fullName[a]
+		//salutation = { m:"Mr.", f: "Ms."} [students[i].gender] -- shorter way to assign the greeting to gender
+		if (students[i].gender === "f") {
+			alert("To: " +students[i].netid+ "\n\nDear Ms. " +lastName+ ",\n\nYour grade is " +students[i].grade+ ".")
+		} else if (students[i].gender === "m") {
+			alert("To: " +students[i].netid+ "\n\nDear Mr. " +lastName+ ",\n\nYour grade is " +students[i].grade+ ".")
+		}
+
+	}
+
+
+</script>
