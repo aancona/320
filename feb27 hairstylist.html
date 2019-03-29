@@ -8,14 +8,30 @@
   "How are you?",
   "Are you from around here?",
 ]*/
+questions = [
+  "How's the weather today?",
+  "What's in the news today?",
+  "What's new in sports today?",
+  "What do you think about the hawkeyes?"
+]
+pResponse = []
+nResponse = []
+
 x = prompt("How are you?")
 while (true) {
+  i = parseInt(Math.random() * questions.length)
   if (/\b(good|great|well|fine|awesome|fantastic|alright)\b/i.test(x)) {
-    x = prompt("I'm glad to hear that.")
+    x = prompt("I'm glad to hear that. " + questions[i])
+    questions.splice(i,1)
   } else if (/\b(bad|awful)\b/i.test(x)) {
-    x = prompt("I'm sorry to hear that.")
+    x = prompt("I'm sorry to hear that. " + questions[i])
+    questions.splice(i,1)
   } else {
     x = prompt("How does that make you feel?")
+  }
+  if (questions.length == 0) {
+    alert("Your haircut is over. Goodbye.")
+    break
   }
 }
 
