@@ -1,19 +1,40 @@
 <script>
   vowels = /[aeiouy]/gi
-  consonants = /[^aeiouy]/gi
-  punctuation =
   x = prompt("Type anything.")
-  y = x.split("")
-  for(i=0;i<y.length;i++){
-    if (y[i].match(vowels)) {
-      if (y[i] == 'e' && !hasVowel && i == y.len) {
-        continue;
-      }
-      if (i == 0 || !(y[i-1].match(vowels))) {
-        y[i] = "aig" + y[i]
-      }
-    }
-  }
-  x = y.join("")
+  words = x.split(" ")
+  numVowels = 0
+  x = ""
+  z = ""
+        for(i=0; i<words.length; i++) {                                                     // go through each word
+          letters = words[i].split("")                                                      // break down each word into letters
+          for (j=0; j<letters.length; j++) {                                                // go through each letter of each word
+            if (letters[j].match(vowels)) {                                                 // if the letter is a vowel
+              numVowels++                                                                   // add it to the count for that word
+              if (j == 0 || !(letters[j-1].match(vowels))) {                                // if there is not another vowel preceding
+                if (letters[j] == "e" && j == (letters.length - 1) && numVowels > 1) {      // if the letter is an 'e' and the last letter and not the only vowel in the word
+                  continue                                                                  // do nothing
+                } else {                                                                    // else
+                  letters[j] = "aig" + letters[j]                                           // add 'aig'
+                }
+              }
+            }
+            z = letters.join("")                                                            // reassemble the word
+          }
+          x = x + z + " "                                                                   // reassemble the input
+        }
   alert(x)
 </script>
+
+<!--
+  separate into words
+    separate into letters of individual words
+      if the letter is a vowel
+        add it to the total vowels in that word for later use
+        if there is not another vowel preceding
+          if the letter is an e, the last letter in the word, and it's not the only vowel in the words
+            do nothing
+          else
+            add 'aig'
+    reassemble the individual words
+  reassemble the input sentence(s)
+ -->
